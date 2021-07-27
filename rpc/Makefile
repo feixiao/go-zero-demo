@@ -4,11 +4,11 @@ download:
 build:download
 	@go build -o cmd
 
-run:
+run:download
 	@go run rpc.go -f etc/rpc.yaml
 
 rpc:
-	@goctl rpc proto -src rpc.proto -dir .
+	@goctl rpc proto -src demo_user_rpc.proto -dir .
 
 
 model:clean_model
