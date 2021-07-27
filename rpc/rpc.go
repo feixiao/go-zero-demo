@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"rpc/internal/config"
-	"rpc/internal/server"
-	"rpc/internal/svc"
-	"rpc/rpc"
+	"github.com/feixiao/go-zero-demo/rpc/internal/config"
+	"github.com/feixiao/go-zero-demo/rpc/internal/server"
+	"github.com/feixiao/go-zero-demo/rpc/internal/svc"
+	"github.com/feixiao/go-zero-demo/rpc/rpc"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/zrpc"

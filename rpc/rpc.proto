@@ -2,14 +2,35 @@ syntax = "proto3";
 
 package rpc;
 
-message Request {
+message PingRequest {
   string ping = 1;
 }
 
-message Response {
+message PingResponse {
   string pong = 1;
 }
 
+message CreateUserRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message CreateUserResponse {
+  string userID = 1;
+}
+
+message GetUserRequest {
+  string userID= 1;
+}
+
+message GetUserResponse {
+  string username = 1;
+  string userID =2;
+}
+
+
 service Rpc {
-  rpc Ping(Request) returns(Response);
+  rpc Ping(PingRequest) returns(PingResponse);
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
 }

@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
-	"rpc/internal/logic"
-	"rpc/internal/svc"
-	"rpc/rpc"
+	"github.com/feixiao/go-zero-demo/rpc/internal/logic"
+	"github.com/feixiao/go-zero-demo/rpc/internal/svc"
+	"github.com/feixiao/go-zero-demo/rpc/rpc"
 )
 
 type RpcServer struct {
@@ -21,7 +21,17 @@ func NewRpcServer(svcCtx *svc.ServiceContext) *RpcServer {
 	}
 }
 
-func (s *RpcServer) Ping(ctx context.Context, in *rpc.Request) (*rpc.Response, error) {
+func (s *RpcServer) Ping(ctx context.Context, in *rpc.PingRequest) (*rpc.PingResponse, error) {
 	l := logic.NewPingLogic(ctx, s.svcCtx)
 	return l.Ping(in)
+}
+
+func (s *RpcServer) CreateUser(ctx context.Context, in *rpc.CreateUserRequest) (*rpc.CreateUserResponse, error) {
+	l := logic.NewCreateUserLogic(ctx, s.svcCtx)
+	return l.CreateUser(in)
+}
+
+func (s *RpcServer) GetUser(ctx context.Context, in *rpc.GetUserRequest) (*rpc.GetUserResponse, error) {
+	l := logic.NewGetUserLogic(ctx, s.svcCtx)
+	return l.GetUser(in)
 }

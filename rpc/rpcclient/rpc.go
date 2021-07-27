@@ -8,17 +8,23 @@ package rpcclient
 import (
 	"context"
 
-	"rpc/rpc"
+	"github.com/feixiao/go-zero-demo/rpc/rpc"
 
 	"github.com/tal-tech/go-zero/zrpc"
 )
 
 type (
-	Request  = rpc.Request
-	Response = rpc.Response
+	CreateUserResponse = rpc.CreateUserResponse
+	GetUserRequest     = rpc.GetUserRequest
+	GetUserResponse    = rpc.GetUserResponse
+	PingRequest        = rpc.PingRequest
+	PingResponse       = rpc.PingResponse
+	CreateUserRequest  = rpc.CreateUserRequest
 
 	Rpc interface {
-		Ping(ctx context.Context, in *Request) (*Response, error)
+		Ping(ctx context.Context, in *PingRequest) (*PingResponse, error)
+		CreateUser(ctx context.Context, in *CreateUserRequest) (*CreateUserResponse, error)
+		GetUser(ctx context.Context, in *GetUserRequest) (*GetUserResponse, error)
 	}
 
 	defaultRpc struct {
@@ -32,7 +38,17 @@ func NewRpc(cli zrpc.Client) Rpc {
 	}
 }
 
-func (m *defaultRpc) Ping(ctx context.Context, in *Request) (*Response, error) {
+func (m *defaultRpc) Ping(ctx context.Context, in *PingRequest) (*PingResponse, error) {
 	client := rpc.NewRpcClient(m.cli.Conn())
 	return client.Ping(ctx, in)
+}
+
+func (m *defaultRpc) CreateUser(ctx context.Context, in *CreateUserRequest) (*CreateUserResponse, error) {
+	client := rpc.NewRpcClient(m.cli.Conn())
+	return client.CreateUser(ctx, in)
+}
+
+func (m *defaultRpc) GetUser(ctx context.Context, in *GetUserRequest) (*GetUserResponse, error) {
+	client := rpc.NewRpcClient(m.cli.Conn())
+	return client.GetUser(ctx, in)
 }
