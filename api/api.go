@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"api/internal/config"
-	"api/internal/handler"
-	"api/internal/svc"
+	"github.com/feixiao/go-zero-demo/api/internal/config"
+	"github.com/feixiao/go-zero-demo/api/internal/handler"
+	"github.com/feixiao/go-zero-demo/api/internal/svc"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/rest"

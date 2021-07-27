@@ -1,12 +1,22 @@
-type Request {
-	Name string `path:"name,options=you|me"`
+type Response {
+	Code    int                    `json:"code"`
+	Message string                 `json:"message"`
+	Data    map[string]interface{} `json:"data:omitempty"`
 }
 
-type Response {
-	Message string `json:"message"`
+type CreateUserRequest {
+	Name     string `form:"username"`
+	Password string `form:"password"`
+}
+
+type GetUserRequest {
+	Name string `path:"name"`
 }
 
 service api-api {
-	@handler ApiHandler
-	get /from/:name(Request) returns (Response);
+	@handler CreateUserHandler
+	post /v1/user (CreateUserRequest) returns (Response);
+	
+	@handler GetUserInfo
+	get /v1/user/:name (CreateUserRequest) returns (Response);
 }

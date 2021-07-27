@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"api/internal/config"
+	"github.com/feixiao/go-zero-demo/api/internal/config"
 )
 
 type ServiceContext struct {
