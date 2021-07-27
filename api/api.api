@@ -1,7 +1,7 @@
 type Response {
-	Code    int                    `json:"code"`
-	Message string                 `json:"message"`
-	Data    map[string]interface{} `json:"data:omitempty"`
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data:omitempty"`
 }
 
 type CreateUserRequest {
@@ -10,7 +10,12 @@ type CreateUserRequest {
 }
 
 type GetUserRequest {
-	Name string `path:"name"`
+	UserID string `path:"user_id"`
+}
+
+type GetUserResponse {
+	UserID   string `json:"user_id"`
+	Username string `json:"username"`
 }
 
 service api-api {
@@ -18,5 +23,5 @@ service api-api {
 	post /v1/user (CreateUserRequest) returns (Response);
 	
 	@handler GetUserInfo
-	get /v1/user/:name (CreateUserRequest) returns (Response);
+	get /v1/user/:name (GetUserRequest) returns (Response);
 }

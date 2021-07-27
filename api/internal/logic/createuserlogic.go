@@ -2,10 +2,8 @@ package logic
 
 import (
 	"context"
-
 	"github.com/feixiao/go-zero-demo/api/internal/svc"
 	"github.com/feixiao/go-zero-demo/api/internal/types"
-
 	"github.com/tal-tech/go-zero/core/logx"
 )
 

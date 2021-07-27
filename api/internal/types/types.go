@@ -2,9 +2,9 @@
 package types
 
 type Response struct {
-	Code    int                    `json:"code"`
-	Message string                 `json:"message"`
-	Data    map[string]interface{} `json:"data:omitempty"`
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data:omitempty"`
 }
 
 type CreateUserRequest struct {
@@ -13,5 +13,10 @@ type CreateUserRequest struct {
 }
 
 type GetUserRequest struct {
-	Name string `path:"name"`
+	UserID string `path:"user_id"`
+}
+
+type GetUserResponse struct {
+	UserID   string `json:"user_id"`
+	Username string `json:"username"`
 }

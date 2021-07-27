@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/feixiao/go-zero-demo/rpc/rpc"
 
 	"github.com/feixiao/go-zero-demo/api/internal/svc"
 	"github.com/feixiao/go-zero-demo/api/internal/types"
@@ -23,8 +24,20 @@ func NewGetUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetUse
 	}
 }
 
-func (l *GetUserInfoLogic) GetUserInfo(req types.CreateUserRequest) (*types.Response, error) {
+func (l *GetUserInfoLogic) GetUserInfo(req types.GetUserRequest) (*types.Response, error) {
 	// todo: add your logic here and delete this line
 
-	return &types.Response{}, nil
+	rsp, err := l.svcCtx.UserRpc.GetUser(l.ctx, &rpc.GetUserRequest{
+		UserID: req.UserID,
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	data := &types.GetUserResponse{
+		UserID:   rsp.UserID,
+		Username: rsp.Username,
+	}
+	return NewOKResponse(data), nil
 }
