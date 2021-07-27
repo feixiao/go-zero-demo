@@ -1,3 +1,10 @@
 Name: api-api
 Host: 0.0.0.0
 Port: 8888
+
+
+UserRpc:
+  Etcd:
+    Hosts:
+      - frank.dev:2379
+    Key: rpc.rpc
