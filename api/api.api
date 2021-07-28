@@ -9,6 +9,11 @@ type CreateUserRequest {
 	Password string `form:"password"`
 }
 
+type CreateUserResponse {
+	UserID   string `json:"user_id"`
+	Username string `json:"username"`
+}
+
 type GetUserRequest {
 	UserID string `path:"user_id"`
 }

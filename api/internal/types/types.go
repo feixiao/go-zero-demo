@@ -12,6 +12,11 @@ type CreateUserRequest struct {
 	Password string `form:"password"`
 }
 
+type CreateUserResponse struct {
+	UserID   string `json:"user_id"`
+	Username string `json:"username"`
+}
+
 type GetUserRequest struct {
 	UserID string `path:"user_id"`
 }
