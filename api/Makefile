@@ -5,6 +5,7 @@ build:api
 	@go build -o cmd
 
 run:download
+	@ulimit -HSn 10000
 	@go run api.go -f etc/api-api.yaml
 
 api:clean_api

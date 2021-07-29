@@ -5,6 +5,7 @@ build:download
 	@go build -o cmd
 
 run:download
+	@ulimit -HSn 10000
 	@go run rpc.go -f etc/rpc.yaml
 
 rpc:
