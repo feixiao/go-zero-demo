@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/feixiao/go-zero-demo/code"
 	"github.com/feixiao/go-zero-demo/rpc/rpc"
 
 	"github.com/feixiao/go-zero-demo/api/internal/svc"
@@ -34,7 +35,7 @@ func (l *GetUserInfoLogic) GetUserInfo(req types.GetUserRequest) (*types.Respons
 
 	if err != nil {
 
-		return nil, err
+		return nil, code.ToCodeError(err)
 	}
 
 	data := &types.GetUserResponse{

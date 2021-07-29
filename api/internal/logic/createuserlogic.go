@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/feixiao/go-zero-demo/api/internal/svc"
 	"github.com/feixiao/go-zero-demo/api/internal/types"
+	"github.com/feixiao/go-zero-demo/code"
 	"github.com/feixiao/go-zero-demo/rpc/rpcclient"
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -31,7 +32,7 @@ func (l *CreateUserLogic) CreateUser(req types.CreateUserRequest) (*types.Respon
 
 	if err != nil {
 		logx.Errorf("rpc CreateUser failed, err:%+v", err)
-		return nil, err
+		return nil, code.ToCodeError(err)
 	}
 
 	return NewOKResponse(&types.CreateUserResponse{
