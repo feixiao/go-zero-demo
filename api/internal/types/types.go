@@ -8,8 +8,8 @@ type Response struct {
 }
 
 type CreateUserRequest struct {
-	Name     string `form:"username"`
-	Password string `form:"password"`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 type CreateUserResponse struct {

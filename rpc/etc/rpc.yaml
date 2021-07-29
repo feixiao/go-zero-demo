@@ -6,7 +6,7 @@ Etcd:
   Key: rpc.rpc
 
 Mysql:
-  DataSource: root:123456@tcp(frank.dev:3306)/db_apiserver?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+  DataSource: root:123456@tcp(frank.dev:3306)/go_zero_demo?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 
 CacheRedis:
   - Host: frank.dev:6379

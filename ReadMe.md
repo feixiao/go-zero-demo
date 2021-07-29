@@ -40,3 +40,13 @@ make run
 cd api
 make run 
 ```
+
+### 创建用户
+```shell
+curl -v -X POST "http://localhost:8888/v1/user" \
+  -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"password\": \"123456\", \"username\": \"frank\"}"
+```
+
+
+### 参考资料
++ [官方文档](https://go-zero.dev/cn/)

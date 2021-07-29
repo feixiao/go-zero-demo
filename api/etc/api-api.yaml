@@ -8,3 +8,6 @@ UserRpc:
     Hosts:
       - frank.dev:2379
     Key: rpc.rpc
+
+Log:
+  Mode: console

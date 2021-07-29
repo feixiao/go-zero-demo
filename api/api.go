@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/feixiao/go-zero-demo/api/internal/logic"
+	"github.com/tal-tech/go-zero/core/logx"
 	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
 
@@ -31,6 +32,8 @@ func main() {
 
 	// 自定义错误
 	httpx.SetErrorHandler(func(err error) (int, interface{}) {
+
+		logx.Errorf("SetErrorHandler err:%+v", err)
 		switch e := err.(type) {
 		case *logic.Error:
 			return http.StatusOK, e.Data()
@@ -39,6 +42,7 @@ func main() {
 		}
 	})
 
+	logx.Infof("Starting server at %s:%d...\n", c.Host, c.Port)
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
 	server.Start()
 }

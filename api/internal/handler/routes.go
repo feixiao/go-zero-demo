@@ -19,8 +19,18 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 			{
 				Method:  http.MethodGet,
-				Path:    "/v1/user/:name",
+				Path:    "/v1/user/:id",
 				Handler: GetUserInfoHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodDelete,
+				Path:    "/v1/user/:id",
+				Handler: DeleteUserHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPut,
+				Path:    "/v1/user/:id",
+				Handler: UpdateUserHandler(serverCtx),
 			},
 		},
 	)

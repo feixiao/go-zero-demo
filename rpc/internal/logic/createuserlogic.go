@@ -6,6 +6,7 @@ import (
 	"github.com/feixiao/go-zero-demo/rpc/model"
 	"github.com/feixiao/go-zero-demo/rpc/rpc"
 	"strconv"
+	"time"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -33,9 +34,10 @@ func (l *CreateUserLogic) CreateUser(in *rpc.CreateUserRequest) (*rpc.CreateUser
 	}
 
 	// 插入数据库
-	res, err := l.svcCtx.UserModel.Insert(model.TbUsers{
-		Username: in.Username,
-		Password: hash,
+	res, err := l.svcCtx.UserModel.Insert(model.AppUser{
+		Username:  in.Username,
+		Password:  hash,
+		DeletedAt: time.Unix(0, 0),
 	})
 	if err != nil {
 		return nil, err

@@ -5,8 +5,8 @@ type Response {
 }
 
 type CreateUserRequest {
-	Name     string `form:"username"`
-	Password string `form:"password"`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 type CreateUserResponse {
@@ -28,5 +28,11 @@ service api-api {
 	post /v1/user (CreateUserRequest) returns (Response);
 	
 	@handler GetUserInfo
-	get /v1/user/:name (GetUserRequest) returns (Response);
+	get /v1/user/:id (GetUserRequest) returns (Response);
+	
+	@handler DeleteUser
+	delete /v1/user/:id (GetUserRequest) returns (Response)
+	
+	@handler UpdateUser
+	put /v1/user/:id (CreateUserRequest) returns (Response)
 }
