@@ -7,9 +7,27 @@
 + [ ] 内建限流、熔断、降载，且自动触发，自动恢复
 + [ ] API 参数自动校验
 + [ ] 超时级联控制
-+ [ ] 数据库缓存代码自动化生成，自动缓存控制
-+ [ ] 链路跟踪、统计报警等
++ [x] 数据库缓存代码自动化生成，自动缓存控制
+  ```shell
+  # 内置工具通过sql文件自动化生成，也可以通过数据库表生成
+  
+  # 带redis缓存版本，操作MySQL版本
+  goctl model mysql ddl -c -src user.sql -dir ./model
+  
+  # 不带redis缓存版本，只操作MySQL版本
+  goctl model mysql ddl -src user.sql -dir ./model
+  ```
++ [ ] 链路跟踪 
++ [ ] 服务监控
+  服务监控目前没有支持服务对redis和mysql的调用监控。
+  + promethus部署
+  ```shell
+
+  ```  
++ [ ] 日志收集  
 + [ ] 高并发支撑，高并发
+
+
 
 
 ### 运行
