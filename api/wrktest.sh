@@ -30,7 +30,7 @@ threads=144
 if [ "$1" != "" ];then
 	url="$1"
 else
-	url="http://localhost:8888/v1/user/1"
+	url="http://localhost:8888/v1/user/4"
 fi
 
 cmd="wrk --latency -t$threads -d$d -T30s $url"

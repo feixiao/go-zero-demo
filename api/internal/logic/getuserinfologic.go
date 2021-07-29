@@ -27,11 +27,13 @@ func NewGetUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetUse
 func (l *GetUserInfoLogic) GetUserInfo(req types.GetUserRequest) (*types.Response, error) {
 	// todo: add your logic here and delete this line
 
+	logx.Infof("GetUserInfo req:%+v", req)
 	rsp, err := l.svcCtx.UserRpc.GetUser(l.ctx, &rpc.GetUserRequest{
 		UserID: req.UserID,
 	})
 
 	if err != nil {
+
 		return nil, err
 	}
 

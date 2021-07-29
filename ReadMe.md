@@ -47,6 +47,10 @@ curl -v -X POST "http://localhost:8888/v1/user" \
   -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"password\": \"123456\", \"username\": \"frank\"}"
 ```
 
+### 获取用户信息
+```shell
+curl -v "http://localhost:8888/v1/user/4"
+```
 
 ### 参考资料
 + [官方文档](https://go-zero.dev/cn/)

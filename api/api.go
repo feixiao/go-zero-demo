@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/feixiao/go-zero-demo/api/internal/logic"
+	"github.com/feixiao/go-zero-demo/code"
 	"github.com/tal-tech/go-zero/core/logx"
 	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
@@ -35,7 +35,7 @@ func main() {
 
 		logx.Errorf("SetErrorHandler err:%+v", err)
 		switch e := err.(type) {
-		case *logic.Error:
+		case *code.Error:
 			return http.StatusOK, e.Data()
 		default:
 			return http.StatusInternalServerError, nil

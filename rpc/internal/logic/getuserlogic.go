@@ -2,10 +2,13 @@ package logic
 
 import (
 	"context"
+	"github.com/feixiao/go-zero-demo/rpc/model"
+	"strconv"
 
 	"github.com/feixiao/go-zero-demo/rpc/internal/svc"
 	"github.com/feixiao/go-zero-demo/rpc/rpc"
 
+	"github.com/feixiao/go-zero-demo/code"
 	"github.com/tal-tech/go-zero/core/logx"
 )
 
@@ -26,5 +29,22 @@ func NewGetUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetUserLo
 func (l *GetUserLogic) GetUser(in *rpc.GetUserRequest) (*rpc.GetUserResponse, error) {
 	// todo: add your logic here and delete this line
 
-	return &rpc.GetUserResponse{}, nil
+	userID, err := strconv.Atoi(in.UserID)
+	if err != nil {
+		return nil, err
+	}
+
+	user, err := l.svcCtx.UserModel.FindOne(int64(userID))
+	switch err {
+	case nil:
+		return &rpc.GetUserResponse{
+			UserID:   strconv.FormatInt(user.Id, 10),
+			Username: user.Username,
+		}, nil
+	case model.ErrNotFound:
+		return nil, code.ErrUsernameUnRegister
+	default:
+		return nil, err
+	}
+
 }

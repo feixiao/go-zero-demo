@@ -18,7 +18,7 @@ type CreateUserResponse struct {
 }
 
 type GetUserRequest struct {
-	UserID string `path:"user_id"`
+	UserID string `path:"id"`
 }
 
 type GetUserResponse struct {

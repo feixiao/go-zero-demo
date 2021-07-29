@@ -1,6 +1,4 @@
-package logic
-
-import "github.com/feixiao/go-zero-demo/api/internal/types"
+package code
 
 type (
 	Error struct {
@@ -28,13 +26,5 @@ func (e *Error) Data() *ErrorResponse {
 	return &ErrorResponse{
 		Code: e.Code,
 		Msg:  e.Msg,
-	}
-}
-
-func NewOKResponse(data interface{}) *types.Response {
-	return &types.Response{
-		Code:    0,
-		Message: "成功",
-		Data:    data,
 	}
 }

@@ -15,7 +15,7 @@ type CreateUserResponse {
 }
 
 type GetUserRequest {
-	UserID string `path:"user_id"`
+	UserID string `path:"id"`  // 需要跟下面的":id"一样
 }
 
 type GetUserResponse {
