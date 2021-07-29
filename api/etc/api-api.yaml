@@ -10,4 +10,8 @@ UserRpc:
     Key: rpc.rpc
 
 Log:
-  Mode: console
+  # console|file|volume
+  Mode: file
+  #Path: logs
+
+MaxConns: 300 # 限制300并发，默认是10000
