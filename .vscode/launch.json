@@ -12,6 +12,15 @@
             "program": "${workspaceFolder}/api/api.go",
             "env": {},
             "args": ["-f","${workspaceFolder}/api/etc/api-api.yaml"]
+        },
+        {
+            "name": "rpc",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/rpc/rpc.go",
+            "env": {},
+            "args": ["-f","${workspaceFolder}/rpc/etc/rpc.yaml"]
         }
     ]
 }
